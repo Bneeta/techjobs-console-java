@@ -124,5 +124,18 @@ public class JobData {
             e.printStackTrace();
         }
     }
+          public static ArrayList<HashMap<String,String>> findByValue (String value){
+            loadData();
+            ArrayList<HashMap<String,String>>jobs=new ArrayList<>();
+            for (HashMap<String,String>row:allJobs){
+                for (String key:row.keySet()){
+                    String allvalue =row.get(key);
+                    if(allvalue.toLowerCase().contains(value.toLowerCase())){
+                        jobs.add(row);
+                    }
 
+                }
+            }
+            return jobs;
+          }
 }
